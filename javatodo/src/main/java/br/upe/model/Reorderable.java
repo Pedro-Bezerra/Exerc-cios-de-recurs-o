@@ -1,0 +1,5 @@
+package br.upe.model;
+
+public interface Reorderable {
+    public void reorder(int fromIndex, int toIndex);
+}
