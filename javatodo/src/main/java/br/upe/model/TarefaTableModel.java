@@ -133,10 +133,27 @@ public class TarefaTableModel extends AbstractTableModel implements Reorderable{
 
     @Override
     public void reorder(int fromIndex, int toIndex) {
+
+
         aux = tarefasAtivas.get(fromIndex);
+        if (fromIndex < toIndex) {
+            for (int i = fromIndex + 1; i <= toIndex; i++) {
+                tarefasAtivas.set(i - 1, tarefasAtivas.get(i));
+            }
+            tarefasAtivas.set(toIndex, aux);
+        } else if (fromIndex > toIndex) {
+            for (int i = fromIndex - 1; i >= toIndex; i--) {
+                tarefasAtivas.set(i + 1, tarefasAtivas.get(i));
+            }
+            tarefasAtivas.set(toIndex, aux);
+        }
+        this.fireTableDataChanged();
+
+        
+        /*
         temp = tarefasAtivas.get(toIndex);
         tarefasAtivas.set(toIndex, aux);
         tarefasAtivas.set(fromIndex, temp);
-        this.fireTableDataChanged();
+        this.fireTableDataChanged();*/
     }
 }
