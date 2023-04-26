@@ -149,7 +149,7 @@ public class TarefaTableModel extends AbstractTableModel implements Reorderable{
         }
         this.fireTableDataChanged();
 
-        
+
         /*
         temp = tarefasAtivas.get(toIndex);
         tarefasAtivas.set(toIndex, aux);

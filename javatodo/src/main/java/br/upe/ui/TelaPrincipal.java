@@ -6,12 +6,11 @@ import br.upe.model.TransferRowHandler;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TelaPrincipal {
+public class TelaPrincipal implements KeyListener {
 
     private JPanel pnlMain;
     private JTextField txtDescricaoTarefa;
@@ -31,8 +30,10 @@ public class TelaPrincipal {
         tblTarefas.setDropMode(DropMode.INSERT_ROWS);
         tblTarefas.setTransferHandler(new TransferRowHandler(tblTarefas));
 
-
         tblTarefas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        txtDescricaoTarefa.addKeyListener(this);
+
 
         tarefas = new ArrayList<>();
         btnAdicionarTarefa.addActionListener(e -> {
@@ -62,4 +63,21 @@ public class TelaPrincipal {
         tblTarefas.getColumnModel().getColumn(0).setMaxWidth(20);
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            adicionarTarefa(txtDescricaoTarefa.getText());
+            txtDescricaoTarefa.setText("");
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
