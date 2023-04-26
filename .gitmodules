@@ -1,0 +1,3 @@
+[submodule "estudo-java"]
+	path = estudo-java
+	url = https://github.com/Pedro-Bezerra/estudo-java.git
