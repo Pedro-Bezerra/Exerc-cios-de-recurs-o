@@ -13,10 +13,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
-public class TarefaTableModel extends AbstractTableModel implements Reorderable{
+public class TarefaTableModel extends AbstractTableModel implements Reorderable {  //Interface implementada pelo grupo
 
     private Tarefa aux = null;
-    private Tarefa temp = null;
+    //private Tarefa temp = null;
     private int index;
     private List<Tarefa> tarefasFinalizadas;
     private List<Tarefa> tarefasAtivas;
@@ -58,6 +58,7 @@ public class TarefaTableModel extends AbstractTableModel implements Reorderable{
         return null;
     }
 
+    //Editado pelo grupo
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return true;
@@ -82,9 +83,11 @@ public class TarefaTableModel extends AbstractTableModel implements Reorderable{
                 }
             }
             this.fireTableDataChanged();
+        //Editado pelo grupo
         } else if (columnIndex == 1) {
             tarefa.setDescricao((String) aValue);
         }
+        this.fireTableDataChanged();
 
         /*if (aux == null) {
             aux = tarefasAtivas.get(rowIndex);
@@ -96,7 +99,7 @@ public class TarefaTableModel extends AbstractTableModel implements Reorderable{
             this.fireTableDataChanged();
             aux = null;
         }*/
-        //this.fireTableDataChanged();
+
 
     }
 
@@ -131,6 +134,7 @@ public class TarefaTableModel extends AbstractTableModel implements Reorderable{
         return exibirFinalizadas;
     }
 
+    //Editado pelo grupo
     @Override
     public void reorder(int fromIndex, int toIndex) {
 

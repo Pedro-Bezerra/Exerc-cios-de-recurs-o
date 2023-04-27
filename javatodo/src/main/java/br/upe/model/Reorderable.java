@@ -1,5 +1,5 @@
 package br.upe.model;
 
-public interface Reorderable {
-    public void reorder(int fromIndex, int toIndex);
+public interface Reorderable {  //Interface criada pelo grupo
+     void reorder(int fromIndex, int toIndex);
 }

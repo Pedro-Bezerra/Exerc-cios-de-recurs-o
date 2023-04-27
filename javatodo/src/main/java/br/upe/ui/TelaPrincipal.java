@@ -10,7 +10,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TelaPrincipal implements KeyListener {
+public class TelaPrincipal implements KeyListener {  //Interface implementada pelo grupo
 
     private JPanel pnlMain;
     private JTextField txtDescricaoTarefa;
@@ -19,19 +19,17 @@ public class TelaPrincipal implements KeyListener {
     private JTable tblTarefas;
     private JCheckBox chkExibirFinalizadas;
     private List<Tarefa> tarefas;
-
-    private DefaultTableModel model;
     private TarefaControlador controlador;
 
     public TelaPrincipal() {
         super();
-
+        //Editado pelo grupo
         tblTarefas.setDragEnabled(true);
         tblTarefas.setDropMode(DropMode.INSERT_ROWS);
         tblTarefas.setTransferHandler(new TransferRowHandler(tblTarefas));
-
+        //Editado pelo grupo
         tblTarefas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
+        //Editado pelo grupo
         txtDescricaoTarefa.addKeyListener(this);
 
 
@@ -68,6 +66,7 @@ public class TelaPrincipal implements KeyListener {
 
     }
 
+    //Editado pelo grupo
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
